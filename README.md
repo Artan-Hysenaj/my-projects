@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# My Projects
 
 Here you will find all of the bigger projects that I've worked on.
 At first you might think that three projects is not a big deal but, I would like to point out that these are all finished projects with working demos.
