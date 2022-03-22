@@ -1,17 +1,25 @@
 # Getting Started with Create React App
 
-Here you will find all of the bigger projects that I've worked on.\ I did not include smaller applications that I have created since these 
+Here you will find all of the bigger projects that I've worked on.
+At first you might think that three projects is not a big deal but, I would like to point out that these are all finished projects with working demos.
+A great deal of emphasis was put on the logic behind these projects rather than design or appearance. In doing so these projects have all of the standard features that a web application should have and then, some more.
 
-## Available Scripts
+## DEMO-s and description bellow,
 
-In the project directory, you can run:
+### `MoviesApp`
 
-### `npm start`
+MoviesApp is the project that was assigned to me by 'BeetRoot Academy' lecturer - Gentrit Halili.
+This application is not hosted online, therefor it does not have a working demo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Find a Coach`
 
-### `npm test`
+I worked this project when I was finishing the course on [Vue - The Complete Guide (incl. Router & Composition API)](https://www.udemy.com/course/vuejs-2-the-complete-guide/).
+Here you will find a working demo that is being hosted on firebase. [Find a Coach](https://vue-http-demo-49523.web.app) 
+
+
+
+### `World Wide Lottery`
+
+This project was assigned to me by Solaborate Company when I applied for internship two months ago.
+Here you will find a working demo that is being hosted on Netlify. [World Wide Lottery](https://awesome-goldstine-f740f9.netlify.app/) 
