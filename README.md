@@ -6,7 +6,8 @@ A great deal of emphasis was put on the logic behind these projects rather than 
 
 ## DEMO-s and description bellow,
 
-### `Find a Coach`
+## Find a Coach
+### `Vue3`
 
 [DEMO](https://vue-http-demo-49523.web.app)
 
@@ -15,7 +16,8 @@ Here you will find a working demo that is being hosted on firebase. [Find a Coac
 
 
 
-### `World Wide Lottery`
+## World Wide Lottery
+### `ReactJS`
 
 [DEMO](https://awesome-goldstine-f740f9.netlify.app/)
 
@@ -24,7 +26,18 @@ Here you will find a working demo that is being hosted on Netlify. [World Wide L
 
 
 
-### `MoviesApp`
+## MoviesApp
+### `ReactJS`
 
 MoviesApp is the project that was assigned to me by 'BeetRoot Academy' lecturer - Gentrit Halili.
 This application is dependent on a locally hosted server for the backend, therefore it is not hosted and does not have a working demo.
+
+
+
+## MyBurger
+### `ReactJS`
+
+[DEMO](https://react-my-burger-cfe39.web.app/)
+
+The birger builder app is the first big project that I did when learning react the first time around.
+I did not include it's source code because I lost it with my old laptop, but, I do have a working demo hosted on firebase [MyBurger](https://react-my-burger-cfe39.web.app/)
