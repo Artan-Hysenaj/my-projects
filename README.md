@@ -1,10 +1,6 @@
-# my-projects
-Here you will find all of the bigger projects that I've worked on.
-
-
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Here you will find all of the bigger projects that I've worked on.\ I did not include smaller applications that I have created since these 
 
 ## Available Scripts
 
