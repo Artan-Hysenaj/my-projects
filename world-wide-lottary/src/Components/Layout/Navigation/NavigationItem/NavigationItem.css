@@ -1,0 +1,16 @@
+.NavigationItem {
+  margin: 0 5px;
+}
+.NavigationItem .navigation-link {
+  text-decoration: none;
+  padding: 1rem;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.NavigationItem .navigation-link:hover {
+  background-color: #141e27;
+}
+.NavigationItem .navigation-link.active {
+  background-color: #141e27;
+}

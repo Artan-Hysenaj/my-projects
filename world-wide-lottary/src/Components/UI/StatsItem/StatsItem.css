@@ -1,0 +1,15 @@
+.StatsItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  background-color: #20323927;
+}
+.StatsItem:nth-child(2n) {
+  background-color: #20323973;
+}
+.StatsItem .stats-number {
+  background-color: #395b64;
+  padding: 0.7rem;
+  border-radius: 12px;
+}
