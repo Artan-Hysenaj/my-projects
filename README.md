@@ -8,6 +8,7 @@ A great deal of emphasis was put on the logic behind these projects rather than 
 
 ### `Find a Coach`
 
+[DEMO](https://vue-http-demo-49523.web.app) 
 I worked this project when I was finishing the course on [Vue - The Complete Guide (incl. Router & Composition API)](https://www.udemy.com/course/vuejs-2-the-complete-guide/).
 Here you will find a working demo that is being hosted on firebase. [Find a Coach](https://vue-http-demo-49523.web.app) 
 
@@ -15,6 +16,7 @@ Here you will find a working demo that is being hosted on firebase. [Find a Coac
 
 ### `World Wide Lottery`
 
+[DEMO](https://awesome-goldstine-f740f9.netlify.app/) 
 This project was assigned to me by Solaborate Company when I applied for internship two months ago.
 Here you will find a working demo that is being hosted on Netlify. [World Wide Lottery](https://awesome-goldstine-f740f9.netlify.app/) 
 
