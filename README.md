@@ -1,53 +1,70 @@
-# My Projects
+# Getting Started with Create React App
 
-Here you will find all of the bigger projects that I've worked on.
-At first you might think that three projects is not a big deal but, I would like to point out that these are all finished projects with working demos.
-A great deal of emphasis was put on the logic behind these projects rather than design or appearance. In doing so these projects have all of the standard features that a web application should have and then, some more.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## DEMO-s and description bellow,
+## Available Scripts
 
-## Find a Coach
-### `Vue3`
+In the project directory, you can run:
 
-[DEMO](https://vue-http-demo-49523.web.app)
+### `npm start`
 
-I worked this project when I was finishing the course on [Vue - The Complete Guide (incl. Router & Composition API)](https://www.udemy.com/course/vuejs-2-the-complete-guide/).
-Here you will find a working demo that is being hosted on firebase. [Find a Coach](https://vue-http-demo-49523.web.app) 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
+### `npm test`
 
-## World Wide Lottery
-### `ReactJS`
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-[DEMO](https://awesome-goldstine-f740f9.netlify.app/)
+### `npm run build`
 
-This project was assigned to me by Solaborate Company when I applied for internship two months ago.
-Here you will find a working demo that is being hosted on Netlify. [World Wide Lottery](https://awesome-goldstine-f740f9.netlify.app/) 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## MoviesApp
-### `ReactJS`
+### `npm run eject`
 
-MoviesApp is the project that was assigned to me by 'BeetRoot Academy' lecturer - Gentrit Halili.
-This application is dependent on a locally hosted server for the backend, therefore it is not hosted and does not have a working demo.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## MyBurger
-### `ReactJS`
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-[DEMO](https://react-my-burger-cfe39.web.app/)
+## Learn More
 
-The burger builder app is the first big project that I did when learning react the first time around.
-I did not include it's source code because I lost it with my old laptop, but, I do have a working demo hosted on firebase [MyBurger](https://react-my-burger-cfe39.web.app/)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
-## React-Meetups
-### `NextJS`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-[DEMO](https://my-projects-ashy.vercel.app/)
+### Analyzing the Bundle Size
 
-The React-meetups app is my first ever project working with NextJS. It is a simple write/read application with uses it's own api for reaching to Mongodb where the data is stored.
-Here you will find a working demo [React-Meetups](https://my-projects-ashy.vercel.app/)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
