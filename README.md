@@ -39,5 +39,15 @@ This application is dependent on a locally hosted server for the backend, theref
 
 [DEMO](https://react-my-burger-cfe39.web.app/)
 
-The birger builder app is the first big project that I did when learning react the first time around.
+The burger builder app is the first big project that I did when learning react the first time around.
 I did not include it's source code because I lost it with my old laptop, but, I do have a working demo hosted on firebase [MyBurger](https://react-my-burger-cfe39.web.app/)
+
+
+
+## React-Meetups
+### `NextJS`
+
+[DEMO](https://my-projects-ashy.vercel.app/)
+
+The React-meetups app is my first ever project working with NextJS. It is a simple write/read application with uses it's own api for reaching to Mongodb where the data is stored.
+Here you will find a working demo [React-Meetups](https://my-projects-ashy.vercel.app/)
