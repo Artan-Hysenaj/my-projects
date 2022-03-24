@@ -1,0 +1,22 @@
+.Header {
+  height: 70px;
+  display: flex;
+  padding: 0 1rem;
+  justify-content: space-between;
+  background-color: #203239;
+}
+
+@media (max-width: 500px) {
+  h2 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .Header {
+    height: 100%;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

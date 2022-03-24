@@ -1,11 +1,9 @@
-
-import "./Navigation.css";
+import classes from "./Navigation.module.css";
 import NavigationItem from "./NavigationItem/NavigationItem";
 const Navigation = (props) => {
-  
   return (
-    <ul className="Navigation">
-      <NavigationItem link="/" page="HOME" />
+    <ul className={classes.Navigation}>
+      <NavigationItem link="/home" page="HOME" />
       <NavigationItem link="/winners" page="WINNERS" />
       <NavigationItem link="/session-players" page="SESSION PLAYERS" />
       <NavigationItem link="/stats" page="STATS" />

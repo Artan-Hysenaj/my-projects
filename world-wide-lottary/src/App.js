@@ -1,10 +1,9 @@
-import "./App.css";
 import Home from "./Pages/Home";
 import Winners from "./Pages/Winners";
 import SessionPlayers from "./Pages/SessionPlayers";
 import Stats from "./Pages/Stats";
 import NotFound from "./Pages/NotFound";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Header from "./Components/Layout/Header";
 import Notification from "./Components/UI/Notification/Notification";
 import { useSelector } from "react-redux";
@@ -22,16 +21,19 @@ function App() {
       )}
       <Header />
       <Switch>
-        <Route path="/" exact>
+        <Route exact path="/">
+          <Redirect to="/home" />
+        </Route>
+        <Route path="/home">
           <Home />
         </Route>
-        <Route path="/winners" exact>
+        <Route path="/winners">
           <Winners />
         </Route>
-        <Route path="/session-players" exact>
+        <Route path="/session-players">
           <SessionPlayers />
         </Route>
-        <Route path="/stats" exact>
+        <Route path="/stats">
           <Stats />
         </Route>
         <Route path="*">

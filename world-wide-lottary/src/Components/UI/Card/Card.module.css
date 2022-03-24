@@ -10,49 +10,58 @@
   /* padding: 1rem; */
   border-radius: 12px;
 }
-.Card .card-img {
+.card-img {
   width: 200px;
   height: 200px;
   margin: auto;
 }
-.Card .card-img img {
+.card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
   margin: 0 10px;
 }
-.Card .card-info {
+.card-info {
   padding: 1rem;
   margin: auto;
 }
-.Card .card-info .card-info-fullname {
+.card-info-fullname {
   border-bottom: 1px solid #fff;
 }
-.Card .card-info .card-info-fullname .card-info-location {
+.card-info-location {
   font-size: 14px;
   margin-bottom: 1rem;
   margin-top: -1rem;
   opacity: 0.8;
 }
-.Card .card-info span {
+.card-info span {
   margin-right: 7px;
 }
-.Card .card-info .card-info-user-info p {
+.card-info-user-info p {
   color: #b5bec2;
   font-weight: 600;
   font-size: 15px;
 }
-.Card .card-info .card-info-user-info p span {
+.card-info-user-info p span {
   position: relative;
   opacity: 1;
   color: #fff;
 }
-.Card .card-info .card-info-user-info .edit-icon .card-info-font-icon {
+.card-info-font-icon {
   position: absolute;
   margin: 0 5px;
   font-size: 16px;
 }
-.Card .card-info .card-info-user-info .edit-icon .card-info-font-icon:hover {
+.card-info-font-icon:hover {
   font-size: 18px;
+}
+
+@media (max-width: 500px) {
+  .Card {
+    padding-top: 1rem;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+  }
 }

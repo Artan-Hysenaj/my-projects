@@ -1,20 +1,15 @@
-import "./NavigationItem.css";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import classes from "./NavigationItem.module.css";
+import { NavLink } from "react-router-dom";
 const NavigationItem = (props) => {
-  const location = useLocation();
   return (
-    <li className="NavigationItem">
-      <Link
-        className={
-          location.pathname === props.link
-            ? "navigation-link active"
-            : "navigation-link"
-        }
+    <li className={classes.NavigationItem}>
+      <NavLink
+        activeClassName={classes.active}
+        className={classes["navigation-link"]}
         to={props.link}
       >
         {props.page}
-      </Link>
+      </NavLink>
     </li>
   );
 };

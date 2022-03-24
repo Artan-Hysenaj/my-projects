@@ -7,7 +7,7 @@ import { fetchUser } from "../../store/user-actions";
 import { userActions } from "../../store/user-slice";
 import Button from "../UI/Button/Button";
 import Card from "../UI/Card/Card";
-import "./HomeComponent.css";
+import classes from "./HomeComponent.module.css";
 import Dialog from "../UI/Modal/Dialog";
 const Home = (props) => {
   const generatedUser = useSelector((state) => state.user.generatedUser);
@@ -16,7 +16,7 @@ const Home = (props) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="Home">
+    <div className={classes.Home}>
       <Button
         buttonValue="Generate User"
         type="button"

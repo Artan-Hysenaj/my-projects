@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Card.css";
+import classes from "./Card.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faPencil } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
@@ -27,35 +27,35 @@ const Card = (props) => {
   };
 
   return (
-    <div className="Card">
-      <div className="card-img">
+    <div className={classes.Card}>
+      <div className={classes["card-img"]}>
         <img src={props.user.picture} alt={props.fullName} />
       </div>
-      <div className="card-info">
-        <div className="card-info-fullname">
-          <h3 className="card-title">{props.user.fullName}</h3>
-          <div className="card-info-location">
+      <div className={classes["card-info"]}>
+        <div className={classes["card-info-fullname"]}>
+          <h3 className={classes["card-title"]}>{props.user.fullName}</h3>
+          <div className={classes["card-info-location"]}>
             <span>{props.user.location}</span>
           </div>
         </div>
-        <div className="card-info-user-info">
+        <div className={classes["card-info-user-info"]}>
           <p>
             Email:{" "}
             <span>
               {showEditEmail ? emailInput : editedEmail}{" "}
               <span
-                className="edit-icon"
+                className={classes["edit-icon"]}
                 onClick={() => setShowEditEmail(!showEditEmail)}
               >
                 {showEditEmail ? (
                   <FontAwesomeIcon
-                    className="card-info-font-icon"
+                    className={classes["card-info-font-icon"]}
                     icon={faCheck}
                     onClick={() => onSaveHandler()}
                   />
                 ) : (
                   <FontAwesomeIcon
-                    className="card-info-font-icon"
+                    className={classes["card-info-font-icon"]}
                     icon={faPencil}
                   />
                 )}
