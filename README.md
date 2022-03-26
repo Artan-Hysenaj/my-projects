@@ -19,10 +19,10 @@ Here you will find a working demo that is being hosted on firebase. [Find a Coac
 ## World Wide Lottery
 ### `ReactJS`
 
-[DEMO](https://prismatic-jelly-392d1f.netlify.app/home)
+[DEMO](https://prismatic-jelly-392d1f.netlify.app/)
 
 This project was assigned to me by Solaborate Company when I applied for internship two months ago.
-Here you will find a working demo that is being hosted on Netlify. [World Wide Lottery](https://prismatic-jelly-392d1f.netlify.app/home) 
+Here you will find a working demo that is being hosted on Netlify. [World Wide Lottery](https://prismatic-jelly-392d1f.netlify.app/) 
 
 
 
