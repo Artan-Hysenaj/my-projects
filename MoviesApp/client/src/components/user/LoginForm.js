@@ -13,8 +13,8 @@ const LoginForm = ({ onSubmit }) => {
     status,
     error,
     data: response,
-  } = useHttp(Api.auth.login, true);
-  
+  } = useHttp(Api.auth.login, { startWithPending: true });
+
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     email: "",
