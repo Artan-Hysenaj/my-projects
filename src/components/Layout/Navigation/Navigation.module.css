@@ -1,0 +1,29 @@
+.navigation {
+  text-align: center;
+}
+.title {
+  font-size: 2rem;
+  color: #fff;
+}
+.nav-items {
+  margin: 1rem 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.nav-item {
+  color: #fff;
+}
+.nav-item-link {
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem 1.2rem;
+  color: #fff;
+}
+.nav-item-link:hover,
+.nav-item-link:active {
+  background-color: #f36161;
+}
+.active {
+  background-color: #f36161;
+}

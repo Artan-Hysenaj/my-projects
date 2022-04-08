@@ -1,0 +1,17 @@
+.button {
+  margin-top: 0.75rem;
+  display: inline-block;
+  background-color: #9b2c2c;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  border: none;
+}
+
+.button:hover,
+.button:active {
+  background-color: #742a2a;
+  outline: none;
+  cursor: pointer;
+}

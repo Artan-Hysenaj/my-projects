@@ -1,0 +1,16 @@
+.layout {
+  max-width: 900px;
+  margin: auto;
+}
+.header {
+  margin: 2rem 0;
+  /* outline: 1px solid white; */
+}
+@media (max-width: 901px) {
+  .layout {
+    padding: 1rem;
+  }
+  .header {
+    margin: 0.25rem 0;
+  }
+}

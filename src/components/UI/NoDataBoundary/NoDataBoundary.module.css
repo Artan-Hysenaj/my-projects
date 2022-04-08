@@ -1,0 +1,13 @@
+.info {
+  margin: 1rem;
+  text-align: center;
+  max-width: 400px;
+  max-height: 400px;
+  margin: auto;
+}
+.info img {
+  margin: 0.5rem 0;
+  width: 70%;
+  height: 1070%;
+  border-radius: 0.25rem;
+}
