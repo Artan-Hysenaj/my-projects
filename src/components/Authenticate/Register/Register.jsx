@@ -11,8 +11,8 @@ const Register = (props) => {
   const [_, dispatch] = useStore();
   const navigate = useNavigate();
   const { sendRequest: registerRequest, isLoading, error } = useHttp();
-  const registerDataHandler = (registerData) => {
-    dispatch(LOGIN, { registerData });
+  const registerDataHandler = (authData) => {
+    dispatch(LOGIN, { authData });
     if (error) return;
     navigate("/welcome");
   };

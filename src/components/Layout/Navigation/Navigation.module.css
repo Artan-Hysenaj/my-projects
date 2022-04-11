@@ -47,3 +47,28 @@
   width: 2px;
   background-color: #333;
 }
+@media (max-width: 850px) {
+  .nav-items {
+    flex-direction: column;
+  }
+  .leftSide {
+    justify-content: center;
+  }
+  .rightSide {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}
+@media (max-width: 580px) {
+  .leftSide {
+    display: block;
+  }
+  .nav-item {
+    margin: 0.5rem;
+  }
+  .nav-item-link {
+    display: inline-block;
+    width: 10rem;
+    padding: 0.25rem 0.75rem;
+  }
+}

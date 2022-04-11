@@ -7,6 +7,18 @@ export const FIREBASE_LOGIN = `https://identitytoolkit.googleapis.com/v1/account
 
 export const transfomIncomingDataToArray = (data) => {
   const transformedArray = [];
+  for (let key1 in data) {
+    for (let key2 in data[key1]) {
+      transformedArray.push({
+        id: key2,
+        ...data[key1][key2],
+      });
+    }
+  }
+  return transformedArray;
+};
+export const transformIncomingMySnippets = (data) => {
+  const transformedArray = [];
   for (let key in data) {
     transformedArray.push({
       id: key,
@@ -14,4 +26,18 @@ export const transfomIncomingDataToArray = (data) => {
     });
   }
   return transformedArray;
+};
+export const transformIncomingJavaScriptSnippets = (data) => {
+  const transformedData = transfomIncomingDataToArray(data);
+  const filteredData = transformedData.filter(
+    (snippet) => snippet.language === "JavaScript"
+  );
+  return filteredData;
+};
+export const transformIncomingReactJSSnippets = (data) => {
+  const transformedData = transfomIncomingDataToArray(data);
+  const filteredData = transformedData.filter(
+    (snippet) => snippet.language === "ReactJS"
+  );
+  return filteredData;
 };

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import NewSnippetForm from "../../NewSnippet/NewSnippetForm/NewSnippetForm";
 import Modal from "../../UI/Modal/Modal";
 import Code from "../Code/Code";
 import classes from "./Snippet.module.css";
-const Snippet = ({ snippet, onDeleteSnippet }) => {
+
+const Snippet = ({ snippet, onDeleteSnippet, hasOwnerPermissions }) => {
   const { id, language, name, description, code } = snippet;
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [showEditModal, setShowEditModal] = useState(false);
 
   const deleteConfirmationModal = showDeleteModal && (
     <Modal
@@ -34,7 +33,7 @@ const Snippet = ({ snippet, onDeleteSnippet }) => {
         </div>
         <p>{description}</p>
         <Code code={code} />
-        {true && (
+        {hasOwnerPermissions && (
           <div className={classes.actions}>
             <Link to={`/edit-snippet/${id}`}>
               <span>Edit</span>

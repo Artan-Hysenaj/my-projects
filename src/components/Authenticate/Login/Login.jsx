@@ -11,8 +11,8 @@ const Login = (props) => {
   const [_, dispatch] = useStore({ shouldListen: false });
   const navigate = useNavigate();
   const { sendRequest: loginRequest, isLoading, error } = useHttp();
-  const loginDataHandler = (loginData) => {
-    dispatch(LOGIN, { loginData });
+  const loginDataHandler = (authData) => {
+    dispatch(LOGIN, { authData });
     if (error && !isLoading) return;
     navigate("/");
   };

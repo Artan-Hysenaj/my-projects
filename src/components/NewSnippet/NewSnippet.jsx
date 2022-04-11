@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NewSnippetForm from "./NewSnippetForm/NewSnippetForm";
 import Wrapper from "../UI/Wrapper/Wrapper";
 import useHttp from "../../hooks/use-http";
@@ -11,9 +11,9 @@ const NewSnippet = (props) => {
   const { sendRequest: createSnippet, isLoading, error } = useHttp();
   const createNewSnippetHandler = (snippet) => {
     createSnippet({
-      url: FIREBASE + "snippets.json",
+      url: FIREBASE + `snippets/${userId}.json`,
       method: "POST",
-      body: { ...snippet, userId },
+      body: snippet,
     });
   };
   if (error) console.log("Add new snippet", error);

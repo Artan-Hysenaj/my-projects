@@ -4,7 +4,9 @@ import useHttp from "../hooks/use-http";
 import { FIREBASE } from "../util/utilities";
 import NewSnippetForm from "../components/NewSnippet/NewSnippetForm/NewSnippetForm";
 import Loading from "../components/UI/Loading/Loading";
+import { useStore } from "../store/store";
 const EditSnippetPage = (props) => {
+  const [{ userId }] = useStore();
   const params = useParams();
   const { snippetId } = params;
   const [snippet, setSnippet] = useState({});
@@ -19,7 +21,7 @@ const EditSnippetPage = (props) => {
 
   useEffect(() => {
     getSnippetById(
-      { url: FIREBASE + `snippets/${snippetId}.json` },
+      { url: FIREBASE + `snippets/${userId}/${snippetId}.json` },
       transformFetchedDataHandler
     );
   }, [getSnippetById, snippetId]);
@@ -34,5 +36,3 @@ const EditSnippetPage = (props) => {
 };
 
 export default EditSnippetPage;
-
-

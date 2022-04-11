@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
 import useInput from "../../../hooks/use-input";
+import { useStore } from "../../../store/store";
 import { FIREBASE } from "../../../util/utilities";
 import Loading from "../../UI/Loading/Loading";
 import Modal from "../../UI/Modal/Modal";
@@ -10,6 +11,7 @@ import classes from "./NewSnippetForm.module.css";
 const isNotEmpty = (value) => value.trim() !== "";
 
 const NewSnippetForm = (props) => {
+  const [{ userId, token }] = useStore();
   const { snippet } = props;
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
@@ -84,7 +86,7 @@ const NewSnippetForm = (props) => {
     if (!formIsValid) return;
     if (snippet) {
       editSnippetById({
-        url: FIREBASE + `snippets/${snippet.id}.json`,
+        url: FIREBASE + `snippets/${userId}/${snippet.id}.json`,
         method: "PUT",
         body: formData,
       });
@@ -149,6 +151,7 @@ const NewSnippetForm = (props) => {
             onBlur={languageBlurHandler}
           >
             <option value="">Choose a language</option>
+            <option value="ReactJS">ReactJS</option>
             <option value="JavaScript">JavaScript</option>
             <option value="HTML">HTML</option>
             <option value="CSS">CSS</option>

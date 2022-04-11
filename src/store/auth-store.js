@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { initStore } from "./store";
 
 export const LOGIN = "LOGIN";
@@ -19,27 +18,32 @@ const initialState = {
 const configureStore = () => {
   const actions = {
     LOGIN: (state, payload) => {
-      const { loginData } = payload;
-      localStorage.setItem("token", loginData.idToken);
-      localStorage.setItem("userId", loginData.localId);
-      localStorage.setItem("expiresIn", loginData.expiresIn);
+      const { authData } = payload;
+      localStorage.setItem("token", authData.idToken);
+      localStorage.setItem("userId", authData.localId);
+      localStorage.setItem("expiresIn", authData.expiresIn);
+      localStorage.setItem("email", authData.email);
       return {
         isAuthenticated: true,
-        token: loginData.idToken,
-        userId: loginData.localId,
-        refreshToken: loginData.refreshToken,
-        expiresIn: loginData.expiresIn,
-        email: loginData.email,
+        token: authData.idToken,
+        userId: authData.localId,
+        refreshToken: authData.refreshToken,
+        expiresIn: authData.expiresIn,
+        email: authData.email,
       };
     },
     LOGOUT: (state, payload) => {
       localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      localStorage.removeItem("expiresIn");
+      localStorage.removeItem("email");
       return initialState;
     },
     AUTOLOGIN: (state, payload) => {
       const token = localStorage.getItem("token");
       const userId = localStorage.getItem("userId");
       const expiresIn = localStorage.getItem("expiresIn");
+      const email = localStorage.getItem("email");
       if (!token) return initialState;
       return {
         isAuthenticated: true,
@@ -47,7 +51,7 @@ const configureStore = () => {
         userId,
         refreshToken: null,
         expiresIn,
-        email: null,
+        email,
       };
     },
     AUTOLOGOUT: (state, payload) => {},

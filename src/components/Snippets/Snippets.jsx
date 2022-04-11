@@ -1,38 +1,27 @@
-import React, { useEffect, useCallback } from "react";
+import React from "react";
 import { useStore } from "../../store/store";
 import useHttp from "../../hooks/use-http";
 import NoDataBoundary from "../UI/NoDataBoundary/NoDataBoundary";
 import Wrapper from "../UI/Wrapper/Wrapper";
 import Snippet from "./Snippet/Snippet";
-import { FIREBASE, transfomIncomingDataToArray } from "../../util/utilities";
-import { REMOVE, SET } from "../../store/snippets-store";
+import { FIREBASE } from "../../util/utilities";
+import { REMOVE } from "../../store/snippets-store";
 import classes from "./Snippets.module.css";
-const Snippets = () => {
+const Snippets = ({ isLoading, hasOwnerPermissions }) => {
   const [state, dispatch] = useStore();
   const { snippets } = state;
-  const { sendRequest: fetchSnippets, isLoading, errorFetch } = useHttp();
-  const { sendRequest: deleteSnippet, errorDelete } = useHttp();
-
-  const getSnippets = useCallback((data) => {
-    const transformedData = transfomIncomingDataToArray(data);
-    dispatch(SET, { snippets: transformedData });
-  }, []);
-
-  useEffect(() => {
-    fetchSnippets({ url: FIREBASE + "snippets.json" }, getSnippets);
-  }, [getSnippets]);
+  const { sendRequest: deleteSnippet, error } = useHttp();
 
   const deleteSnippetHandler = (id) => {
     deleteSnippet({
-      url: FIREBASE + `snippets/${id}.json`,
+      url: FIREBASE + `snippets/${state.userId}/${id}.json`,
       method: "DELETE",
     });
 
     dispatch(REMOVE, { id });
   };
 
-  if (errorDelete) console.log("delete snippet error: ", error);
-  if (errorFetch) console.log("fetching snippets error: ", error);
+  if (error) console.log("delete snippet error: ", error);
 
   return (
     <Wrapper>
@@ -44,6 +33,7 @@ const Snippets = () => {
                 key={snippet.id}
                 snippet={snippet}
                 onDeleteSnippet={deleteSnippetHandler}
+                hasOwnerPermissions={hasOwnerPermissions}
               />
             );
           })}

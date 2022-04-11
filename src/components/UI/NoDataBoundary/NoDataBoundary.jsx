@@ -5,7 +5,7 @@ const image =
   "https://i.pinimg.com/originals/7a/1c/f2/7a1cf2206c2a112f413888d20794c323.png";
 const NoDataBoundary = (props) => {
   const { data, isLoading } = props;
-  const showContent = data && data.length !== 0;
+  const showContent = data && data.length !== 0 && !isLoading;
   return (
     <div>
       {isLoading && <Loading />}

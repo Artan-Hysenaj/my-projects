@@ -1,10 +1,11 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { LOGOUT } from "../../../store/auth-store";
 import { useStore } from "../../../store/store";
 import Button from "../../UI/Button/Button";
 import classes from "./Navigation.module.css";
 const Navigation = (props) => {
+  const navigate = useNavigate();
   const [state, dispatch] = useStore();
   const { isAuthenticated, email } = state;
   return (
@@ -88,7 +89,13 @@ const Navigation = (props) => {
           )}
           {isAuthenticated && (
             <li className={classes["nav-item-button"]}>
-              <Button title="Logout" onClick={() => dispatch(LOGOUT)} />
+              <Button
+                title="Logout"
+                onClick={() => {
+                  navigate("/");
+                  dispatch(LOGOUT);
+                }}
+              />
             </li>
           )}
           {!isAuthenticated && (

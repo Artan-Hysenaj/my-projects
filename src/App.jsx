@@ -8,6 +8,9 @@ import AuthenticatePage from "./pages/AuthenticatePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import NewSnippetPage from "./pages/NewSnippetPage";
 import EditSnippetPage from "./pages/EditSnippetPage";
+import MySnippetsPage from "./pages/MySnippetsPage";
+import JavaScriptPage from "./pages/languages/JavaScriptPage";
+import ReacJSPage from "./pages/languages/ReacJSPage";
 function App() {
   const [state, dispatch] = useStore();
   const { isAuthenticated } = state;
@@ -18,6 +21,7 @@ function App() {
     <>
       {isAuthenticated && (
         <>
+          <Route path="/my-snippets" element={<MySnippetsPage />} />
           <Route path="/new-snippet" element={<NewSnippetPage />} />
           <Route
             path="/edit-snippet/:snippetId"
@@ -35,6 +39,8 @@ function App() {
         {!isAuthenticated && (
           <Route path="/authenticate" element={<AuthenticatePage />} />
         )}
+        <Route path="/java-script" element={<JavaScriptPage />} />
+        <Route path="/react-js" element={<ReacJSPage />} />
         <Route path="*" element={<NotFoundPage />} />
         {privateRoutes}
       </Routes>
