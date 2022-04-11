@@ -9,11 +9,20 @@
   margin: 1rem 0;
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+.leftSide {
+  display: flex;
+  align-items: center;
+}
+.rightSide {
+  display: flex;
+  align-items: center;
 }
 .nav-item {
   color: #fff;
 }
+
 .nav-item-link {
   width: 100%;
   height: 100%;
@@ -26,4 +35,15 @@
 }
 .active {
   background-color: #f36161;
+}
+.nav-item-button {
+  margin: -0.25rem 0 0 1rem;
+}
+.nav-item-user {
+  text-decoration: underline;
+}
+.divider {
+  height: 2rem;
+  width: 2px;
+  background-color: #333;
 }

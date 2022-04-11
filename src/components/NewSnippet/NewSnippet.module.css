@@ -1,0 +1,10 @@
+.error {
+  position: absolute;
+  display: block;
+  background-color: rgba(74, 65, 65, 0.918);
+  padding: 1rem 2rem;
+  max-width: 20rem;
+  top: 0;
+  left: calc(50%-20rem);
+  margin: 3rem;
+}

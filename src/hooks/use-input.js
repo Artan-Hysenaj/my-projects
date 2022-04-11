@@ -5,8 +5,10 @@ const initialState = {
 };
 const inputStateReducer = (state, action) => {
   switch (action.type) {
+    case "EDITING":
+      return { value: action.value, isTouched: false };
     case "INPUT":
-      return { value: action.value, isTouched: state.isTouched };
+      return { value: action.value, isTouched: true };
     case "BLUR":
       return {
         isTouched: true,
@@ -22,8 +24,11 @@ const inputStateReducer = (state, action) => {
   }
 };
 const useInput = (options) => {
-  const { validationFunction } = options;
-  const [inputState, dispatch] = useReducer(inputStateReducer, initialState);
+  const { validationFunction, defaultValue } = options;
+  const [inputState, dispatch] = useReducer(inputStateReducer, {
+    value: defaultValue ?? "",
+    isTouched: false,
+  });
 
   const valueIsValid = validationFunction(inputState.value);
   const hasError = !valueIsValid && inputState.isTouched;

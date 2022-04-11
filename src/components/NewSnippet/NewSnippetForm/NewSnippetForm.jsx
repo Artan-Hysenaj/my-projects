@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useHttp from "../../../hooks/use-http";
 import useInput from "../../../hooks/use-input";
-import { ADD } from "../../../store/snippets-store";
-import { useStore } from "../../../store/store";
+import { FIREBASE } from "../../../util/utilities";
+import Loading from "../../UI/Loading/Loading";
+import Modal from "../../UI/Modal/Modal";
 import classes from "./NewSnippetForm.module.css";
 
 const isNotEmpty = (value) => value.trim() !== "";
 
 const NewSnippetForm = (props) => {
-  const [_, dispatch] = useStore({ shouldListen: true });
+  const { snippet } = props;
+  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+  const { sendRequest: editSnippetById, isLoading, error } = useHttp();
+  const nameRef = useRef();
 
   const {
     value: nameInput,
@@ -16,7 +23,10 @@ const NewSnippetForm = (props) => {
     onChangeHandler: nameChangeHandler,
     onBlurHandler: nameBlurHandler,
     reset: nameResetHandler,
-  } = useInput({ validationFunction: isNotEmpty });
+  } = useInput({
+    validationFunction: isNotEmpty,
+    defaultValue: snippet?.name ? snippet.name : "",
+  });
   const {
     value: languageInput,
     isValid: languageIsValid,
@@ -24,7 +34,10 @@ const NewSnippetForm = (props) => {
     onChangeHandler: languageChangeHandler,
     onBlurHandler: languageBlurHandler,
     reset: languageResetHandler,
-  } = useInput({ validationFunction: isNotEmpty });
+  } = useInput({
+    validationFunction: isNotEmpty,
+    defaultValue: snippet?.language ? snippet.language : "",
+  });
   const {
     value: descriptionInput,
     isValid: descriptionIsValid,
@@ -32,7 +45,10 @@ const NewSnippetForm = (props) => {
     onChangeHandler: descriptionChangeHandler,
     onBlurHandler: descriptionBlurHandler,
     reset: descriptionResetHandler,
-  } = useInput({ validationFunction: isNotEmpty });
+  } = useInput({
+    validationFunction: isNotEmpty,
+    defaultValue: snippet?.description ? snippet.description : "",
+  });
   const {
     value: codeInput,
     isValid: codeIsValid,
@@ -40,7 +56,10 @@ const NewSnippetForm = (props) => {
     onChangeHandler: codeChangeHandler,
     onBlurHandler: codeBlurHandler,
     reset: codeResetHandler,
-  } = useInput({ validationFunction: isNotEmpty });
+  } = useInput({
+    validationFunction: isNotEmpty,
+    defaultValue: snippet?.code ? snippet.code : "",
+  });
 
   const resetForm = () => {
     nameResetHandler();
@@ -49,11 +68,11 @@ const NewSnippetForm = (props) => {
     codeResetHandler();
   };
 
+  const formIsValid =
+    nameIsValid && languageIsValid && descriptionIsValid && codeIsValid;
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
-
-    const formIsValid =
-      nameIsValid && descriptionIsValid && languageIsValid && codeIsValid;
 
     const formData = {
       name: nameInput,
@@ -62,84 +81,145 @@ const NewSnippetForm = (props) => {
       code: codeInput,
     };
 
-    console.log(formIsValid);
     if (!formIsValid) return;
-    dispatch(ADD, { snippet: formData });
-    // resetForm();
+    if (snippet) {
+      editSnippetById({
+        url: FIREBASE + `snippets/${snippet.id}.json`,
+        method: "PUT",
+        body: formData,
+      });
+    } else {
+      props.onCreateNewSnippet(formData);
+    }
+
+    if (!props.error) {
+      resetForm();
+      setTimeout(() => {
+        navigate("/");
+      }, 500);
+    }
   };
 
   return (
-    <form onSubmit={onSubmitHandler}>
-      <div className={classes.control}>
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={nameInput}
-          onChange={nameChangeHandler}
-        />
-      </div>
-      <div className={classes.control}>
-        <label htmlFor="language">Language</label>
-        <select
-          id="language"
-          name="language"
-          value={languageInput}
-          onChange={languageChangeHandler}
-          onBlur={languageBlurHandler}
+    <>
+      {showModal && (
+        <Modal
+          title="Are you sure?"
+          actionsConfig={{ title: "Continue" }}
+          onClose={() => setShowModal(false)}
+          onConfirm={() => {
+            resetForm();
+            navigate("/");
+          }}
         >
-          <option value="">Choose a language</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="HTML">HTML</option>
-          <option value="CSS">CSS</option>
-        </select>
-      </div>
-      <div className={classes.control}>
-        <label htmlFor="description">Description</label>
-        <textarea
-          name="description"
-          id="description"
-          rows="3"
-          placeholder="ex. Logs to the console"
-          value={descriptionInput}
-          onChange={descriptionChangeHandler}
-          onBlur={descriptionBlurHandler}
-        ></textarea>
-      </div>
-      <div className={classes.control}>
-        <label htmlFor="code">Code</label>
-        <textarea
-          name="code"
-          id="code"
-          rows="10"
-          placeholder="ex. console.log('helloworld')"
-          value={codeInput}
-          onChange={codeChangeHandler}
-          onBlur={codeBlurHandler}
-        ></textarea>
-      </div>
-      <div className={classes.actions}>
-        <button
-          className={`${classes.clear} ${classes.button}`}
-          type="reset"
-          onClick={resetForm}
-        >
-          Clear
-        </button>
-        <div>
-          <button className={`${classes.cancel} ${classes.button}`}>
-            Cancel
-          </button>
-          <button
-            className={`${classes.submit} ${classes.button}`}
-            type="submit"
-          >
-            Submit
-          </button>
+          <p>If you continue, all your data on this form will be lost.</p>
+        </Modal>
+      )}
+      <form onSubmit={onSubmitHandler}>
+        <div className={classes.control}>
+          <label htmlFor="name">
+            Name
+            {nameHasError && (
+              <span className={classes.error}> should not be empty</span>
+            )}
+          </label>
+          <input
+            ref={nameRef}
+            type="text"
+            name="name"
+            id="name"
+            placeholder="ex. Console Log"
+            value={nameInput}
+            onChange={nameChangeHandler}
+            onBlur={nameBlurHandler}
+          />
         </div>
-      </div>
-    </form>
+        <div className={classes.control}>
+          <label htmlFor="language">
+            Language
+            {languageHasError && (
+              <span className={classes.error}> should not be empty</span>
+            )}
+          </label>
+          <select
+            id="language"
+            name="language"
+            value={languageInput}
+            onChange={languageChangeHandler}
+            onBlur={languageBlurHandler}
+          >
+            <option value="">Choose a language</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+          </select>
+        </div>
+        <div className={classes.control}>
+          <label htmlFor="description">
+            Description
+            {descriptionHasError && (
+              <span className={classes.error}> should not be empty</span>
+            )}
+          </label>
+          <textarea
+            name="description"
+            id="description"
+            rows="3"
+            placeholder="ex. Logs to the console"
+            value={descriptionInput}
+            onChange={descriptionChangeHandler}
+            onBlur={descriptionBlurHandler}
+          ></textarea>
+        </div>
+        <div className={classes.control}>
+          <label htmlFor="code">
+            Code
+            {codeHasError && (
+              <span className={classes.error}> should not be empty</span>
+            )}
+          </label>
+          <textarea
+            name="code"
+            id="code"
+            rows="10"
+            placeholder="ex. console.log('helloworld')"
+            value={codeInput}
+            onChange={codeChangeHandler}
+            onBlur={codeBlurHandler}
+          ></textarea>
+        </div>
+        {props.isLoading ? (
+          <Loading />
+        ) : (
+          <div className={classes.actions}>
+            <button
+              type="button"
+              className={`${classes.clear} ${classes.button}`}
+              onClick={resetForm}
+            >
+              Clear
+            </button>
+            <div>
+              <button
+                type="button"
+                className={`${classes.cancel} ${classes.button}`}
+                onClick={() => setShowModal(true)}
+              >
+                Cancel
+              </button>
+              <button
+                className={`${formIsValid ? "" : classes.disabled} ${
+                  classes.submit
+                } ${classes.button} `}
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        )}
+      </form>
+    </>
   );
 };
 
