@@ -26,13 +26,6 @@ Here you will find a working demo that is being hosted on Netlify. [World Wide L
 
 
 
-## MoviesApp
-### `ReactJS`
-
-MoviesApp is the project that was assigned to me by 'BeetRoot Academy' lecturer - Gentrit Halili.
-This application is dependent on a locally hosted server for the backend, therefore it is not hosted and does not have a working demo.
-
-
 
 ## MyBurger
 ### `ReactJS`
