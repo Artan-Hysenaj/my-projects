@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect } from "react";
-import Header from "../components/Layout/Header/Header";
-import Snippets from "../components/Snippets/Snippets";
+import Header from "../Layout/Header/Header";
+import Snippets from "../containers/Snippets/Snippets";
 import useHttp from "../hooks/use-http";
 import { SET } from "../store/snippets-store";
 import { useStore } from "../store/store";
-import { FIREBASE, transformIncomingMySnippets } from "../util/utilities";
+import { FIREBASE, transformIncomingMySnippets } from "../helpers/helpers";
 const MySnippetsPage = (props) => {
   const [state, dispatch] = useStore();
   const { sendRequest: fetchSnippets, isLoading, error } = useHttp();

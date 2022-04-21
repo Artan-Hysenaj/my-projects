@@ -1,12 +1,7 @@
-import { useReducer } from "react";
-const initialState = {
-  value: "",
-  isTouched: false,
-};
+import { useEffect, useReducer, useState } from "react";
+
 const inputStateReducer = (state, action) => {
   switch (action.type) {
-    case "EDITING":
-      return { value: action.value, isTouched: false };
     case "INPUT":
       return { value: action.value, isTouched: true };
     case "BLUR":
@@ -16,19 +11,34 @@ const inputStateReducer = (state, action) => {
       };
     case "RESET":
       return {
-        isTouched: false,
         value: "",
+        isTouched: false,
+      };
+
+    case "SET_DEFAULT_VALUE":
+      return {
+        value: action.value,
+        isTouched: false,
       };
     default:
-      return initialState;
+      return {
+        value: "",
+        isTouched: false,
+      };
   }
 };
 const useInput = (options) => {
   const { validationFunction, defaultValue } = options;
   const [inputState, dispatch] = useReducer(inputStateReducer, {
-    value: defaultValue ?? "",
+    value: "",
     isTouched: false,
   });
+
+  useEffect(() => {
+    if (defaultValue?.trim() !== "" && defaultValue?.trim().length !== 0) {
+      dispatch({ type: "SET_DEFAULT_VALUE", value: defaultValue });
+    }
+  }, [defaultValue]);
 
   const valueIsValid = validationFunction(inputState.value);
   const hasError = !valueIsValid && inputState.isTouched;

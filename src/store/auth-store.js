@@ -1,10 +1,10 @@
+import { EMAIL, EXPIRES_IN, TOKEN, USER_ID } from "../constants";
+import { localStorageHelper } from "../helpers/localStorageHelper";
 import { initStore } from "./store";
 
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const AUTOLOGIN = "AUTOLOGIN";
-
-let logoutTimer;
 
 const initialState = {
   isAuthenticated: false,
@@ -19,10 +19,10 @@ const configureStore = () => {
   const actions = {
     LOGIN: (state, payload) => {
       const { authData } = payload;
-      localStorage.setItem("token", authData.idToken);
-      localStorage.setItem("userId", authData.localId);
-      localStorage.setItem("expiresIn", authData.expiresIn);
-      localStorage.setItem("email", authData.email);
+      localStorageHelper.set(TOKEN, authData.idToken);
+      localStorageHelper.set(USER_ID, authData.localId);
+      localStorageHelper.set(EXPIRES_IN, authData.expiresIn);
+      localStorageHelper.set(EMAIL, authData.email);
       return {
         isAuthenticated: true,
         token: authData.idToken,
@@ -33,17 +33,17 @@ const configureStore = () => {
       };
     },
     LOGOUT: (state, payload) => {
-      localStorage.removeItem("token");
-      localStorage.removeItem("userId");
-      localStorage.removeItem("expiresIn");
-      localStorage.removeItem("email");
+      localStorageHelper.remove(TOKEN);
+      localStorageHelper.remove(USER_ID);
+      localStorageHelper.remove(EXPIRES_IN);
+      localStorageHelper.remove(EMAIL);
       return initialState;
     },
     AUTOLOGIN: (state, payload) => {
-      const token = localStorage.getItem("token");
-      const userId = localStorage.getItem("userId");
-      const expiresIn = localStorage.getItem("expiresIn");
-      const email = localStorage.getItem("email");
+      const token = localStorageHelper.get(TOKEN);
+      const userId = localStorageHelper.get(USER_ID);
+      const expiresIn = localStorageHelper.get(EXPIRES_IN);
+      const email = localStorageHelper.get(EMAIL);
       if (!token) return initialState;
       return {
         isAuthenticated: true,

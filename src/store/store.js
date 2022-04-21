@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 let globalState = {};
 let listeners = [];
@@ -16,7 +16,6 @@ export const useStore = (options = { shouldListen: true }) => {
       listener(globalState);
     }
   };
-
   useEffect(() => {
     if (shouldListen) {
       listeners.push(setState);

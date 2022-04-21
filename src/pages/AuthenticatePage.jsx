@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import Login from "../components/Authenticate/Login/Login";
-import Register from "../components/Authenticate/Register/Register";
+import Login from "../containers/Login/Login";
+import Register from "../containers/Register/Register";
 import Wrapper from "../components/UI/Wrapper/Wrapper";
 const AuthenticatePage = (props) => {
-  const [login, setLogin] = useState(true);
+  // const [login, setLogin] = useState(true);
   const toggleAuthModeHandler = () => {
-    setLogin((prevState) => !prevState);
+    // setLogin((prevState) => !prevState);
   };
   return (
     <>
       <Wrapper>
-        {login ? (
+        {true ? (
           <section>
             <Login toggleAuthMode={toggleAuthModeHandler} />
           </section>

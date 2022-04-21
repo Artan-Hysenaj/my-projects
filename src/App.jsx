@@ -1,4 +1,4 @@
-import Layout from "./components/Layout/Layout";
+import Layout from "./Layout/Layout";
 import { AUTOLOGIN } from "./store/auth-store";
 import { useStore } from "./store/store";
 import { useEffect } from "react";
@@ -10,27 +10,13 @@ import NewSnippetPage from "./pages/NewSnippetPage";
 import EditSnippetPage from "./pages/EditSnippetPage";
 import MySnippetsPage from "./pages/MySnippetsPage";
 import JavaScriptPage from "./pages/languages/JavaScriptPage";
-import ReacJSPage from "./pages/languages/ReacJSPage";
+import ReactJSPage from "./pages/languages/ReactJSPage";
 function App() {
   const [state, dispatch] = useStore();
   const { isAuthenticated } = state;
   useEffect(() => {
     dispatch(AUTOLOGIN);
   }, []);
-  const privateRoutes = (
-    <>
-      {isAuthenticated && (
-        <>
-          <Route path="/my-snippets" element={<MySnippetsPage />} />
-          <Route path="/new-snippet" element={<NewSnippetPage />} />
-          <Route
-            path="/edit-snippet/:snippetId"
-            element={<EditSnippetPage />}
-          />
-        </>
-      )}
-    </>
-  );
   return (
     <Layout>
       <Routes>
@@ -40,9 +26,18 @@ function App() {
           <Route path="/authenticate" element={<AuthenticatePage />} />
         )}
         <Route path="/java-script" element={<JavaScriptPage />} />
-        <Route path="/react-js" element={<ReacJSPage />} />
+        <Route path="/react-js" element={<ReactJSPage />} />
         <Route path="*" element={<NotFoundPage />} />
-        {privateRoutes}
+        {isAuthenticated && (
+          <>
+            <Route path="/my-snippets" element={<MySnippetsPage />} />
+            <Route path="/new-snippet" element={<NewSnippetPage />} />
+            <Route
+              path="/edit-snippet/:snippetId"
+              element={<EditSnippetPage />}
+            />
+          </>
+        )}
       </Routes>
     </Layout>
   );

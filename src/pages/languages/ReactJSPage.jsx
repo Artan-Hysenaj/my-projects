@@ -6,14 +6,14 @@ import { SET } from "../../store/snippets-store";
 import { useStore } from "../../store/store";
 import {
   FIREBASE,
-  transformIncomingJavaScriptSnippets,
+  transformIncomingReactJSSnippets,
 } from "../../helpers/helpers";
-const JavaScriptPage = (props) => {
+const ReactJSPage = (props) => {
   const [_, dispatch] = useStore();
   const { sendRequest: fetchSnippets, isLoading, error } = useHttp();
   const fetchSnippetsHandler = (data) => {
-    const javascriptSnippets = transformIncomingJavaScriptSnippets(data);
-    dispatch(SET, { snippets: javascriptSnippets });
+    const ReactSnippets = transformIncomingReactJSSnippets(data);
+    dispatch(SET, { snippets: ReactSnippets });
   };
   useEffect(() => {
     fetchSnippets(
@@ -25,11 +25,11 @@ const JavaScriptPage = (props) => {
   }, []);
   return (
     <>
-      <Header title="JavaScript Snippets" subtitle="" />
+      <Header title="ReactJS Snippets" subtitle="" />
 
       <Snippets isLoading={isLoading} hasOwnerPermissions={false} />
     </>
   );
 };
 
-export default JavaScriptPage;
+export default ReactJSPage;
