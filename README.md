@@ -44,3 +44,13 @@ I did not include it's source code because I lost it with my old laptop, but, I 
 
 The React-meetups app is my first ever project working with NextJS. It is a simple write/read application with uses it's own api for reaching to Mongodb where the data is stored.
 Here you will find a working demo [React-Meetups](https://my-projects-ashy.vercel.app/)
+
+
+
+## Snippets
+### `ReactJS`
+
+[DEMO]()
+
+The My snippets project was an inspiration from a youtube video where the whole project was developed with NextJS ans some third-party libraries. In an attempted act of aggresion towards my boredom I decided to redo the whole thing with ReactJS and do everything myself wihour any third-party libraries.
+Have a look at this working demo [Snippets]()
