@@ -3,14 +3,14 @@ import Login from "../containers/Login/Login";
 import Register from "../containers/Register/Register";
 import Wrapper from "../components/UI/Wrapper/Wrapper";
 const AuthenticatePage = (props) => {
-  // const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(true);
   const toggleAuthModeHandler = () => {
-    // setLogin((prevState) => !prevState);
+    setLogin((prevState) => !prevState);
   };
   return (
     <>
       <Wrapper>
-        {true ? (
+        {login ? (
           <section>
             <Login toggleAuthMode={toggleAuthModeHandler} />
           </section>
