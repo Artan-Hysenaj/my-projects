@@ -1,10 +1,9 @@
 # My Projects
 
 Here you will find all of the bigger projects that I've worked on.
-I would like to point out that these are all finished projects with working demos.
 A great deal of emphasis was put on the logic behind these projects rather than design or appearance. In doing so these projects have all of the standard features that a web application should have and then some more.
 
-## DEMO-s and description bellow,
+## DEMO-s and description below,
 
 ## Find a Coach
 ### `Vue3`
@@ -21,9 +20,8 @@ Here you will find a working demo that is being hosted on firebase. [Find a Coac
 
 [DEMO](https://prismatic-jelly-392d1f.netlify.app/)
 
-This project was assigned to me by Solaborate Company when I applied for internship two months ago.
+This project was assigned to me by Solaborate Company when I applied for internship.
 Here you will find a working demo that is being hosted on Netlify. [World Wide Lottery](https://prismatic-jelly-392d1f.netlify.app/) 
-
 
 
 
@@ -52,5 +50,5 @@ Here you will find a working demo [React-Meetups](https://my-projects-ashy.verce
 
 [DEMO](https://candid-travesseiro-2035f0.netlify.app)
 
-The My snippets project was an inspiration from a youtube video where the whole project was developed with NextJS ans some third-party libraries. In an attempted act of aggresion towards my boredom I decided to redo the whole thing with ReactJS and do everything myself wihour any third-party libraries.
+The My snippets project was an inspiration from a youtube video where the whole project was developed with NextJS and some third-party libraries. In an attempted act of aggresion towards my boredom I decided to redo the whole thing with ReactJS and do everything myself wihout any third-party libraries.
 Have a look at this working demo [Errday Snippets](https://candid-travesseiro-2035f0.netlify.app)
