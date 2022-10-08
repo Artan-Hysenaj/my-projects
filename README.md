@@ -1,7 +1,7 @@
 # My Projects
 
 Here you will find all of the bigger projects that I've worked on.
-I would like to point out that these are all finished projects with working demos.
+
 A great deal of emphasis was put on the logic behind these projects rather than design or appearance. In doing so these projects have all of the standard features that a web application should have and then some more.
 
 ## DEMO-s and description bellow,
@@ -30,10 +30,8 @@ Here you will find a working demo that is being hosted on Netlify. [World Wide L
 ## MyBurger
 ### `ReactJS`
 
-[DEMO](https://react-my-burger-cfe39.web.app/)
-
 The burger builder app is the first big project that I did when learning react the first time around.
-I did not include it's source code because I lost it with my old laptop, but, I do have a working demo hosted on firebase [MyBurger](https://react-my-burger-cfe39.web.app/)
+I did not include it's source code because I lost it with my old laptop.
 
 
 
@@ -50,7 +48,4 @@ Here you will find a working demo [React-Meetups](https://my-projects-ashy.verce
 ## Errday Snippets
 ### `ReactJS`
 
-[DEMO](https://candid-travesseiro-2035f0.netlify.app)
-
 The My snippets project was an inspiration from a youtube video where the whole project was developed with NextJS ans some third-party libraries. In an attempted act of aggresion towards my boredom I decided to redo the whole thing with ReactJS and do everything myself wihour any third-party libraries.
-Have a look at this working demo [Errday Snippets](https://candid-travesseiro-2035f0.netlify.app)
