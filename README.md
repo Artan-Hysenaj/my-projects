@@ -1,7 +1,3 @@
-# React Application with React 18 Server Side API Implementation
-
-This is a React application that has implemented React 18's server-side API for rendering components on the server. This allows for improved performance and better user experience by pre-rendering components on the server and sending them to the client.
-
 ## Getting Started
 
 To get started with this project, follow the steps below:
@@ -16,7 +12,6 @@ To get started with this project, follow the steps below:
 1. Open your terminal.
 2. Change the current working directory to the location where you want to clone the project.
 3. Run the following command to clone the repository:
-
 
 ### Install Dependencies
 
@@ -34,7 +29,6 @@ Before starting the project, it's recommended to build the application to ensure
 ```js
 npm run build
 ```
-
 
 ### Start the Project
 

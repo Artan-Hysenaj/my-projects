@@ -9,7 +9,7 @@ const app = express();
 app.get("/*", (req, res) => {
   const entryPoint = ["/main.js"];
 
-  const { pipe, abort: _abort } = ReactDOMServer.renderToPipeableStream(
+  const { pipe } = ReactDOMServer.renderToPipeableStream(
     <StaticRouter location={req.url}>
       <App />
     </StaticRouter>,
