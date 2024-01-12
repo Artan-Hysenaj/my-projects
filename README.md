@@ -1,51 +1,41 @@
-# My Projects
+## Getting Started
 
-Here you will find all of the bigger projects that I've worked on.
+To get started with this project, follow the steps below:
 
-A great deal of emphasis was put on the logic behind these projects rather than design or appearance. In doing so these projects have all of the standard features that a web application should have and then some more.
+### Prerequisites
 
-## DEMO-s and description bellow,
+- Node.js (version 12 or higher)
+- npm (Node Package Manager)
 
-## Find a Coach
-### `Vue3`
+### Clone the Repository
 
-[DEMO](https://vue-http-demo-49523.web.app)
+1. Open your terminal.
+2. Change the current working directory to the location where you want to clone the project.
+3. Run the following command to clone the repository:
 
-I worked this project when I was finishing the course on [Vue - The Complete Guide (incl. Router & Composition API)](https://www.udemy.com/course/vuejs-2-the-complete-guide/).
-Here you will find a working demo that is being hosted on firebase. [Find a Coach](https://vue-http-demo-49523.web.app) 
+### Install Dependencies
 
+1. Navigate to the project's root directory in the terminal.
+2. Run the following command to install the required dependencies:
 
+```js
+npm install
+```
 
-## World Wide Lottery
-### `ReactJS`
+### Build the Project
 
-[DEMO](https://prismatic-jelly-392d1f.netlify.app/)
+Before starting the project, it's recommended to build the application to ensure you have the latest changes. To build the project, run the following command:
 
-This project was assigned to me by Solaborate Company when I applied for internship two months ago.
-Here you will find a working demo that is being hosted on Netlify. [World Wide Lottery](https://prismatic-jelly-392d1f.netlify.app/) 
+```js
+npm run build
+```
 
+### Start the Project
 
+To start the React application with server-side rendering (SSR), run the following command:
 
+```js
+npm run ssr
+```
 
-## MyBurger
-### `ReactJS`
-
-The burger builder app is the first big project that I did when learning react the first time around.
-I did not include it's source code because I lost it with my old laptop.
-
-
-
-## React-Meetups
-### `NextJS`
-
-[DEMO](https://my-projects-ashy.vercel.app/)
-
-The React-meetups app is my first ever project working with NextJS. It is a simple write/read application with uses it's own api for reaching to Mongodb where the data is stored.
-Here you will find a working demo [React-Meetups](https://my-projects-ashy.vercel.app/)
-
-
-
-## Errday Snippets
-### `ReactJS`
-
-The My snippets project was an inspiration from a youtube video where the whole project was developed with NextJS ans some third-party libraries. In an attempted act of aggresion towards my boredom I decided to redo the whole thing with ReactJS and do everything myself wihour any third-party libraries.
+This will launch the application on a local development server. Open your web browser and visit `http://localhost:3002` to see the application in action.
